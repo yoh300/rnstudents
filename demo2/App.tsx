@@ -1,16 +1,13 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import HomeScreen from './src/HomeScreen'
 
 interface Props {
   
 }
 
 const App = (props: Props) => {
-  return (
-    <View>
-      <Text>TS</Text>
-    </View>
-  )
+  return <HomeScreen />
 }
 
-export default App
+export default HomeScreen
