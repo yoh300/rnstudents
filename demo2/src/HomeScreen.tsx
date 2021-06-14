@@ -18,6 +18,7 @@ const HomeScreen: React.FunctionComponent<HomeScreenProps> = (props) => {
                     <TextInput placeholder="Username" style={{backgroundColor: '#0003', flex: 1, marginLeft: 16, paddingLeft: 16, borderRadius: 5, height: 40}} />
                     <Input placeholder="BASIC INPUT" />                    
                 </View>
+                <TouchableOpacity><Text>Register</Text></TouchableOpacity>
             </View>
         </ImageBackground>
     );
