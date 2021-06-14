@@ -33,13 +33,15 @@ const RegisterScreen: React.FC<RegisterScreenProps> = props => {
           padding: 16,
         }}>
         {/* Username Input */}
-        <StreamEntry icon="user" hint="User" />
+        <StreamEntry icon="user" hint="User" onChanged={text=>console.log("Username: " + text)} />
 
         {/* Password Input */}
         <StreamEntry icon="lock" hint="Password" isPassword={true} />
 
         <View style={{marginTop: 30}} />
-        <Button title="Register" onPress={() => {}} />
+        <Button title="Register" 
+            onPress={() => {}}
+        />
 
         <View style={{marginTop: 16}} />
         <TouchableOpacity style={{height: 30}}>
@@ -63,6 +65,7 @@ type StreamENtryProps = {
     icon: string,
     hint: string,
     isPassword?: boolean
+    onChanged?: (text: string) => void;
 }
 
 //Custom input component
@@ -72,6 +75,7 @@ const StreamEntry:React.FC<StreamENtryProps> = props => {
         {/* icon */}
         <Icon name={props.icon} size={35} color="#0007" style={{marginRight: 8}}/>
         <Input
+            onChangeText={props.onChanged}
           placeholder={props.hint}
           containerStyle={{flex: 1}}
           keyboardType={props.isPassword?'default':'email-address'}
