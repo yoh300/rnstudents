@@ -14,7 +14,7 @@ import {
   Text,
 } from 'react-native';
 
-import {Input} from 'react-native-elements';
+import {Icon, Input} from 'react-native-elements';
 
 interface RegisterScreenProps {}
 
@@ -33,44 +33,10 @@ const RegisterScreen: React.FC<RegisterScreenProps> = props => {
           padding: 16,
         }}>
         {/* Username Input */}
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          {/* icon */}
-          <View
-            style={{
-              width: 30,
-              height: 30,
-              backgroundColor: 'green',
-              borderRadius: 15,
-            }}
-          />
-          <Input
-            keyboardType="email-address"
-            placeholder="Username"
-            containerStyle={{flex: 1}}
-          />
-        </View>
+        <StreamEntry icon="user" hint="User" />
 
         {/* Password Input */}
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          {/* icon */}
-          <View
-            style={{
-              width: 30,
-              height: 30,
-              backgroundColor: 'red',
-              borderRadius: 15,
-            }}
-          />
-          <Input
-            secureTextEntry
-            placeholder="Password"
-            containerStyle={{flex: 1}}
-          />
-        </View>
+        <StreamEntry icon="lock" hint="Password" />
 
         <View style={{marginTop: 30}} />
         <Button title="Register" onPress={() => {}} />
@@ -92,3 +58,24 @@ const RegisterScreen: React.FC<RegisterScreenProps> = props => {
 };
 
 export default RegisterScreen;
+
+type StreamENtryProps = {
+    icon: string,
+    hint: string
+}
+
+//Custom input component
+const StreamEntry:React.FC<StreamENtryProps> = props => {
+    return (
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        {/* icon */}
+        <Icon name={props.icon} size={35} color="#0007" style={{marginRight: 8}}/>
+        <Input
+          keyboardType="email-address"
+          placeholder={props.hint}
+          containerStyle={{flex: 1}}
+        />
+      </View>
+
+    );
+};
