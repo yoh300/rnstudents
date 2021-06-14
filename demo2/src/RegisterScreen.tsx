@@ -36,7 +36,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = props => {
         <StreamEntry icon="user" hint="User" />
 
         {/* Password Input */}
-        <StreamEntry icon="lock" hint="Password" />
+        <StreamEntry icon="lock" hint="Password" isPassword={true} />
 
         <View style={{marginTop: 30}} />
         <Button title="Register" onPress={() => {}} />
@@ -61,7 +61,8 @@ export default RegisterScreen;
 
 type StreamENtryProps = {
     icon: string,
-    hint: string
+    hint: string,
+    isPassword?: boolean
 }
 
 //Custom input component
@@ -71,9 +72,10 @@ const StreamEntry:React.FC<StreamENtryProps> = props => {
         {/* icon */}
         <Icon name={props.icon} size={35} color="#0007" style={{marginRight: 8}}/>
         <Input
-          keyboardType="email-address"
           placeholder={props.hint}
           containerStyle={{flex: 1}}
+          keyboardType={props.isPassword?'default':'email-address'}
+          secureTextEntry={props.isPassword}
         />
       </View>
 
