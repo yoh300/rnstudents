@@ -19,6 +19,9 @@ import {Icon, Input} from 'react-native-elements';
 interface RegisterScreenProps {}
 
 const RegisterScreen: React.FC<RegisterScreenProps> = props => {
+    // let account = {username: '', password: ''};
+    const [account, setAccount] = React.useState({username: '', password: ''});
+
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
       {/* authen section */}
@@ -33,10 +36,22 @@ const RegisterScreen: React.FC<RegisterScreenProps> = props => {
           padding: 16,
         }}>
         {/* Username Input */}
-        <StreamEntry icon="user" hint="User" onChanged={text=>console.log("Username: " + text)} />
+        <StreamEntry icon="user" hint="User" 
+            onChanged={text=>{
+                // account.username = text;
+                // setAccount({username: text, password: account.password})
+                setAccount({...account, username: text})
+                console.log("Username: " + text)}}
+        />
 
         {/* Password Input */}
-        <StreamEntry icon="lock" hint="Password" isPassword={true} />
+        <StreamEntry icon="lock" hint="Password" isPassword={true} 
+            onChanged={text=>{
+                // account.password = text;
+                setAccount({username: account.username, password: text})
+                console.log("Password: " + text)}}
+        />
+        <Text>Debug: {JSON.stringify(account)}</Text>
 
         <View style={{marginTop: 30}} />
         <Button title="Register" 
