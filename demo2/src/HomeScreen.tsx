@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, Text, ImageBackground, TextInput, TouchableOpacity, Image, Button, Alert, StyleSheet, TextInputProps } from 'react-native'
 
+import {Input} from 'react-native-elements';
+
 interface HomeScreenProps {
     
 }
@@ -14,6 +16,7 @@ const HomeScreen: React.FunctionComponent<HomeScreenProps> = (props) => {
                     {/* icon */}
                     <View style={{ width:30, height:30, backgroundColor: 'green', borderRadius: 15,}} />
                     <TextInput placeholder="Username" style={{backgroundColor: '#0003', flex: 1, marginLeft: 16, paddingLeft: 16, borderRadius: 5, height: 40}} />
+                    <Input placeholder="BASIC INPUT" />                    
                 </View>
             </View>
         </ImageBackground>
