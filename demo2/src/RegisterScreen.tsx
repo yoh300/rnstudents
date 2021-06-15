@@ -14,7 +14,9 @@ import {
   Text,
 } from 'react-native';
 
-import {Icon, Input} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {Input} from 'react-native-elements';
+import {AccountType} from './types/account.interface';
 
 interface RegisterScreenProps {}
 
